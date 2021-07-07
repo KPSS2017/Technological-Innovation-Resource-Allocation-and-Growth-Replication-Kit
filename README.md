@@ -65,6 +65,7 @@ In order for the code to run correctly, you need the following packages installe
 - **AggregateOutput.do**: Runs the aggregate OLS regressions and VARs that relate our two innovation indices to output and TFP (The regression results for Figure 5  in the paper and Figure A.3 in the Online Appendix)
 
 
+
 ### Code files using Matlab:
 
 #### Prerequisite:
@@ -82,7 +83,9 @@ In order for the code to run correctly, you need to install the following progra
 - **jbfill.m**: Define the function called in plot_OLS_responses.m which helps plot the confidence intervals
 
 
-#### Additional Notes:
+## Additional Notes:
+
+- There is a minor discrepancy between the value of average acceptance probabilty used in the codes and reported on page 677 (published version of the paper). This minor difference is due to a typo in the published version.
 
 - There are some minor discrepancies between the output that the code generates and the results reported in Table 5 (published version of the paper). These minor differences are due to typos in the published version.
 

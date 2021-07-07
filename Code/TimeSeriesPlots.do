@@ -54,7 +54,7 @@ drop if _merge==2
 drop _merge
 
 
-gen ValuePerPatent=Af/AfNpats/cpi
+gen ValuePerPatent=Af/(1-0.55)/AfNpats/cpi
 
 gen logValuePerPatent=log(ValuePerPatent)
 
