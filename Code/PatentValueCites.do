@@ -88,7 +88,7 @@ replace  m_graw3m0FE= m_graw3m0FE*100
 replace  m_graw3m0FC= m_graw3m0FC*100
 replace  m_graw3m0F= m_graw3m0F*100
 
-* adjust values for acceptance probability (note, paper text incorrectly states pi=56% whereas it should be 55%)
+* adjust values for acceptance probability (note, there is a typo in the paper text and pi should be 0.55 instead)
 replace Af=Af/(1-0.55)
 replace AfE=AfE/(1-0.55)
 replace AfC=AfC/(1-0.55)
