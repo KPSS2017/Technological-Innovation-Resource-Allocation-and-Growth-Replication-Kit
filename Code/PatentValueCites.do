@@ -88,6 +88,12 @@ replace  m_graw3m0FE= m_graw3m0FE*100
 replace  m_graw3m0FC= m_graw3m0FC*100
 replace  m_graw3m0F= m_graw3m0F*100
 
+* adjust values for acceptance probability (note, paper text incorrectly states pi=56% whereas it should be 55%)
+replace Af=Af/(1-0.55)
+replace AfE=AfE/(1-0.55)
+replace AfC=AfC/(1-0.55)
+
+
 * Descriptive statistics for the patent-level measure (Table 1 in the paper and A.6 in the Online Appendix)
 tabstat  ncites citeadj Ret m_graw3m0F Af m_graw3m0FE  AfE m_graw3m0FC AfC  , stat(mean sd p1 p5 p10 p25 p50 p75 p90 p95 p99)
 

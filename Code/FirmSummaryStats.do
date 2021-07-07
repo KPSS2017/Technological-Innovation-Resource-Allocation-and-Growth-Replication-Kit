@@ -10,7 +10,7 @@ tsset permno year
 
  
 * rescale measure by 1-prob of acceptance
-replace  Af=Af/(1-0.56) * 100
+replace  Af=Af/(1-0.55) * 100
 
 replace  Acw=Acw * 100
 

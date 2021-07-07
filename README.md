@@ -64,6 +64,10 @@ In order for the code to run correctly, you need the following packages installe
 	
 - **AggregateOutput.do**: Runs the aggregate OLS regressions and VARs that relate our two innovation indices to output and TFP (The regression results for Figure 5  in the paper and Figure A.3 in the Online Appendix)
 
+#### Additional Notes:
+
+- Paper text incorrectly states the average acceptance rate pi to be 56% whereas it should be 55%.
+
 
 ### Code files using Matlab:
 
