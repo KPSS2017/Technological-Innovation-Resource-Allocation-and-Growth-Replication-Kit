@@ -18,14 +18,8 @@ drop _merge
 sort permno year
 
 replace invt=0 if missing(invt)
-replace txdb=0 if missing(txdb)
-replace pstkrv=0 if missing(pstkrv)
-replace dltt=0 if missing(dltt)
-
 
 replace ppegt=. if ppegt<0
-
-gen roa=(ib+dp)/L.at
 
 gen Dinvt=D.invt
 
@@ -39,8 +33,6 @@ drop if sicc >= 4900 &  sicc <= 4949
 gen indcd=floor(sicc/10)
 
 gen profits=sale-cogs
-
-gen TobQ=log((mkcap/1000 +pstkrv + dltt - invt - txdb)/at)
 
 gen logY=log((sale+Dinvt)/cpi*100)
 gen logP=log(profits/cpi*100)
@@ -65,8 +57,6 @@ drop if mAf==0
 egen iat = sum(at), by(year indcd)
 egen iSALE = sum(sale), by(year indcd)
 
-gen count=1
-egen inofirms = sum(count), by(year indcd)
 
 replace xrd=0 if missing(xrd)
 replace xrd=. if year<1970
@@ -85,32 +75,24 @@ replace AcwI=(AcwI-Acw)/(iat-at)
 replace Af=Af/at
 replace Acw=Acw/at
  
-gen LDlogY=L.logY-L2.logY 
-
-gen logA=log(at) 
 gen logH=log(emp)
 gen logK=log(ppegt/price_k)
 gen logX=tfp
 
 gen LlogK=L.logK 
 gen LlogH=L.logH 
-gen LTobQ=L.TobQ
-gen LlogA=L.logA
  
-gen Lroa=L.roa 
-
-
+ 
 drop if AfI<0
 drop if AcwI<0
 drop if year<1950
 drop if year>2010
 
 *winsorize the variables using annual breakpoints
-winsorizeJ LlogK LlogH logY logP logK logH logX LlogA LDlogY   , by(year) cuts(1 99)
-replace LlogA=LlogAW 
+winsorizeJ LlogK LlogH logY logP logK logH logX   , by(year) cuts(1 99)
 replace LlogK=LlogKW
 replace LlogH=LlogHW
-replace LDlogY=LDlogYW
+
  
 replace logY=logYW
 replace logP=logPW
@@ -118,10 +100,9 @@ replace logK=logKW
 replace logH=logHW
 replace logX=logXW
 
-winsorizeJ  LTobQ Lroa Lvol_iret, by(year) cuts(1 99)
-replace LTobQ=LTobQW
+winsorizeJ Lvol_iret, by(year) cuts(1 99)
 replace Lvol_iret=Lvol_iretW
-replace Lroa=LroaW
+
 
 winsorizeJ  Af AfI  Acw AcwI ARD ARDI, by(year) cuts(1 99)
 replace AfI=AfIW
