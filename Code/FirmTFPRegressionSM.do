@@ -6,7 +6,6 @@ cd "E:\Dropbox\Patents\codeReplication\Data"
 
 use "firm_data.dta", clear
 
-*duplicates drop  gvkey year, force
 
 gen F0logX=(logX)-L.logX
 gen F1logX=(F1.logX)-L.logX
